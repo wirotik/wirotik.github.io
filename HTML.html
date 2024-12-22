@@ -1,50 +1,27 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site avec Effet Laser</title>
-    <style>
-        body, html {
-            margin: 0;
-            height: 100%;
-            overflow: hidden;
-            background-color: black;
-        }
-        .laser {
-            position: absolute;
-            width: 2px;
-            height: 100vh;
-            background: linear-gradient(to bottom, red, transparent);
-            top: 0;
-            animation: laserMove 4s linear infinite;
-        }
-        
-        @keyframes laserMove {
-            from {
-                left: -10%;
-            }
-            to {
-                left: 110%;
-            }
-        }
-    </style>
+    <title>Button Click Example</title>
 </head>
 <body>
-    <script>
-        function creerLaser() {
-            const laser = document.createElement('div');
-            laser.classList.add('laser');
-            laser.style.left = `${Math.random() * 100}vw`;
-            laser.style.animationDuration = `${2 + Math.random() * 3}s`;
-            document.body.appendChild(laser);
 
-            setTimeout(() => {
-                laser.remove();
-            }, 5000);
+    <!-- Le bouton -->
+    <button id="myButton">Cliquez ici</button>
+
+    <!-- Zone où le message sera affiché -->
+    <p id="message"></p>
+
+    <script>
+        // Fonction qui affiche le message "Bravo"
+        function showMessage() {
+            document.getElementById("message").textContent = "Bravo!";
         }
 
-        setInterval(creerLaser, 300);
+        // Attacher l'événement de clic au bouton
+        document.getElementById("myButton").addEventListener("click", showMessage);
     </script>
+
 </body>
 </html>
